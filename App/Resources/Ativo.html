@@ -1,0 +1,168 @@
+{% if info %}
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-check-circle-fill fs-5"></i> <strong>{{info}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% elseif error %}
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-exclamation-diamond-fill fs-5"></i> <strong>ERROR! </strong>{{error}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% elseif primary %}
+    <div class="alert alert-primary alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-database-fill-up fs-5"></i> <strong>{{primary}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+{% if valores %}
+    <div class="alert alert-info" role="alert">
+        {% for key,valor in valores %}
+            {{key}}: {{valor}}<br>
+        {% endfor %}
+    </div>
+{% endif %}
+<div class="mx-auto text-center">
+    <i class="text-center bi bi-pc-display" style="font-size: 5rem;"></i>
+    <figure class="text-center">
+        <blockquote class="blockquote">
+            <p>Cadastro de Ativos</p>
+        </blockquote>
+    </figure>
+</div>
+<div>
+    
+</div>
+<form class="" action="{{action}}" enctype="multipart/form-data" method="post" name="{{nameForm}}" width="100%" id="{{idForm}}">
+    
+    <div class="col-md-6 mx-auto">
+        <div class="form-floating mb-3">
+                <input type="text" class="form-control bg-body-tertiary" name="id" id="autoSizingInputGroup" value="{{id}}" placeholder="#" readonly>
+                <label for="floatingInput">ID</label>
+            </div>  
+        </div>  
+        <div class="mx-auto row">
+            <div class="col-md-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="fab" placeholder="Fabricante" name="fabricante" value="{{fabricante}}">
+                    <label for="fab">Fabricante</label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="modelo" placeholder="Modelo" name="modelo" value="{{modelo}}">
+                    <label for="modelo">Modelo</label>
+                </div>
+            </div>    
+            <div class="col-md-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Número de Serie" id="num_serie" name="num_serie" value="{{num_serie}}">
+                    <label for="num_serie">Número de Série</label>
+                </div>
+            </div>    
+        </div>  
+        <div class="row mx-auto">  
+            <div class="col-md-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Número de Telefone" id="num_telefone" name="num_telefone" value="{{num_telefone}}">
+                    <label for="num_telefone">Número de Telefone</label>
+                </div>
+            </div>        
+            <div class="col-md-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="IMEI" id="imei" name="imei" value="{{imei}}">
+                    <label for="imei">IMEI</label>
+                </div>
+            </div>       
+            <div class="col-md-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Número patrimônio" id="num_pat" name="pat" value="{{pat}}">
+                    <label for="num_pat">Número Patrimônio</label>
+                </div>
+            </div>  
+        </div>
+        <div class="row mx-auto">
+            <div class="col-md-6">
+                <label class="visually-hidden form-label">Status</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-text"><i class="bi bi-toggles"></i></div>
+                    <select class="form-select" name="idStatus" required>
+                        <option value="" >Status do ativo...</option>
+                        {% for st in status %}
+                            <option value="{{st.id}}"  {% if idStatus == st.id %}selected{% endif %}>{{st.estado}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="visually-hidden form-label">Categoria</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-text"><i class="bi bi-tags"></i></div>
+                    <select class="form-select" name="idCategoria" required>
+                        <option value="" >Informe a Categoria...</option>
+                        {% for cat in categorias %}
+                            <option value="{{cat.id}}"  {% if idCategoria == cat.id %}selected{% endif %}>{{cat.nome}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <p class="text-center">
+        <button type="submit" form="{{idForm}}" value="Submit" class="text-center btn btn-primary">Enviar</button>
+        <button name="limpar" type="button" onclick="{{clear}}" class="text-center btn btn-warning">Limpar</button>
+    </p>
+</form>
+{% if cCancelados is not null and cAbertos is not null and cFinalizados is not null %}
+    <hr/>
+    <div class="row g-5">
+        <div class="mx-auto col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Total de Contratos</span>
+                <span class="badge bg-primary rounded-pill">{{cTotal}}</span>
+            </h4>
+            <ul class="list-group list-group-flush mb-3 shadow">
+                <li class="list-group-item d-flex justify-content-between lh-sm bg-danger bg-opacity-10">
+                    <div class="">
+                        <h6 class="my-0"><strong>Cancelados</strong></h6>
+                        <small class="text-body-secondary">Contratos que foram revogados</small>
+                    </div>
+                    <strong class="text-danger">{{cCancelados}}</strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm bg-warning bg-opacity-10">
+                    <div class="">
+                        <h6 class="my-0"><strong>Abertos</strong></h6>
+                        <small class="text-body-secondary">Contratos em vigor</small>
+                    </div>
+                    <strong class="text-warning">{{cAbertos}}</strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm bg-success bg-opacity-10">
+                    <div class="">
+                        <h6 class="my-0"><strong>Finalizados</strong></h6>
+                        <small class="text-body-secondary">Contratos que fecharam seu ciclo</small>
+                    </div>
+                    <strong class="text-success">{{cFinalizados}}</strong>
+                </li>
+            </ul>
+            <form class="m-1" action="?class=ContratoForm" method="post">
+                <input type="hidden" value="{{id}}" name="idAtivo">
+                <input type="submit" class="btn btn-success shadow fw-bold" value="Novo Contrato">
+                <input type="submit" class="btn btn-outline-primary shadow fw-bold" formaction="?class=ContratoList" value="Visualizar">
+            </form>
+        </div>
+    </div>
+{% endif %}
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script
+  	src="https://code.jquery.com/jquery-3.6.3.js"
+ 	integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js" integrity="sha512-d4KkQohk+HswGs6A1d6Gak6Bb9rMWtxjOa0IiY49Q3TeFd5xAzjWXDCBW9RS7m86FQ4RzM2BdHmdJnnKRYknxw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#cpf").mask("999.999.999-99");
+    });
+</script>

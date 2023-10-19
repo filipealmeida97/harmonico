@@ -1,0 +1,118 @@
+{% if SDel %}
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-check-circle-fill fs-5"></i> <strong>{{SDel}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+{% if error %}
+<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+    <i class="bi bi-exclamation-diamond-fill fs-5"></i> <strong>ERROR! </strong>{{error}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% if iSearch %}
+    <div class="alert alert-primary alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-info-circle-fill"></i> <strong>404!</strong> {{iSearch}}
+        <a href="{{fonte}}"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></a>
+    </div>
+{% endif %}
+<div class="mx-auto text-center m-3">
+    <i><span class="display-6 fw-medium">{{titulo}}</span></i>
+</div>
+<form class="" action="{{actionPesquisa}}" method="post">
+    <div class="col-md-4 mx-auto">
+    <div class="input-group mb-2">
+        <span class="input-group-text"><i class="bi bi-binoculars"></i></span>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="barraPesquisa" name="pesquisa" placeholder="Pesquisar" value="{{pesquisa}}">
+          <label for="barraPesquisas">Pesquisar</label>
+        </div>
+    </div>
+    </div>
+</form>
+<hr/>
+<table class="table table-hover">
+    <thead>
+      <tr>
+            <th></th>
+            <th>Ações</th>
+            {% for value in campos %}
+                <th>{{value}}</th>
+            {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+        {% for object in dados %}
+            <tr>
+                <!-- Botão de excluir -->
+                <td>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{object.id}}">
+                        <i class="bi bi-trash3 text-danger"></i>
+                    </a>
+                </td>
+                <td>
+                    <form action="{{edit}}" method="post">
+                        <input type="hidden" name="id" value="{{object.id}}">
+                        <label for="submit{{object.id}}" style="cursor: pointer;"><i class="bi bi bi-pencil-square text-primary"></i></label>
+                        <input type="submit" id='submit{{object.id}}' class="bi bi-pencil-square text-primary" value="Editar" style="display: none;">
+                    </form>
+                </td>
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal{{object.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir dado</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            {% if infoDel %}
+                                <strong>{{infoDel}}</strong>
+                            {% else %}
+                                Realmente deseja remover o registro ID - {{object.id}}
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{delete[object.id]}}"><button type="button" class="btn btn-danger" data-bs-dismiss="modal">Confirmar</button></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            {% for value in object %}
+                <td>{{value}}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<nav aria-label="Page navigation example mx-auto">
+<ul class="pagination justify-content-center">
+    <li class="page-item">
+        {% if confPag.0 - 1 > 0 %}
+            <a class="page-link" href="{{confPag.1}}{{confPag.0 - 1}}" aria-label="Previous">      
+        {% else %}
+            <a class="page-link disabled" href="#" aria-label="Previous">
+        {% endif %}  
+        <span aria-hidden="true">&laquo;</span>
+    </a>
+    </li>
+    {% for pagina in paginas %}
+        {% if pagina == confPag.0 %}
+            <li class="page-item active"><a class="page-link" href="#">{{pagina}}</a></li>
+        {% elseif pagina == '...' %}
+            <li class="page-item"><a class="page-link" href="#">{{pagina}}</a></li>            
+        {% else %}
+            <li class="page-item"><a class="page-link" href="{{confPag.1}}{{pagina}}">{{pagina}}</a></li>
+        {% endif %}
+    {% endfor %}
+    <li class="page-item">
+        {% if confPag.0 + 1 <= confPag.2 %}
+            <a class="page-link" href="{{confPag.1}}{{confPag.0 + 1}}" aria-label="Next">       
+        {% else %}
+            <a class="page-link disabled" href="#" aria-label="Next">  
+        {% endif %}       
+        <span aria-hidden="true">&raquo;</span>
+    </a>
+    </li>
+</ul>
+</nav>

@@ -1,0 +1,289 @@
+{% if iSearch %}
+    <div class="alert alert-primary alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-info-circle-fill"></i> <strong>404!</strong> {{iSearch}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+{% if error %}
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#modalExists').modal('show');
+})
+</script>
+<!-- Fim Formulário de cadastro de contratos -->  
+<!-- Modal -->
+<div class="modal fade" id="modalExists" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Erro na Inserção</h1>
+          <a href="{{fonte}}"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a> 
+        </div>
+        <div class="modal-body">
+          {{error}}
+        </div>
+        <div class="modal-footer">
+          <a href="{{fonte}}"><button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button></a>
+        </div>
+      </div>
+    </div>
+</div>
+{% endif %}
+<div class="col-md-6 mx-auto">
+    <h1 class="text-center display-4"><i>handshake</i></h1>
+</div>
+<div class="container text-center">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-4">
+            <span class="border border-dark-subtle rounded text-secondary p-1">
+                <i class="bi bi-pc-display-horizontal"></i>
+                {% if ativoSelecionado != '' %}
+                    <i class="border-start p-1">{{ativoSelecionado.pat}}</i>({{ativoSelecionado.num_serie}})
+                {% else %}
+                    <i class="border-start p-1">Não selecionado</i>
+                {% endif %}
+            </span>
+        </div>
+        <div class="col-md-auto">
+            <i class="bi bi-arrow-left-right"></i>
+        </div>
+        <div class="col col-lg-4">
+            <span class="border border-dark-subtle rounded text-secondary p-1">
+                <i class="bi bi-person-fill"></i>
+                {% if usuarioSelecionado != '' %}
+                    <i class="border-start p-1">{{usuarioSelecionado.nome}}</i>({{usuarioSelecionado.id}})
+                {% else %}
+                    <i class="border-start p-1">Não selecionado</i>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
+{% if not idAtivo %}
+    <div class="col-md-6 mx-auto">
+        <h2 class="text-center display-5">Escolha o Ativo</h2>
+    </div>
+    <!-- Inicío pesquisa do ativo -->
+    <form class="" action="{{aPesquisaAtivo}}" method="post">
+        <input type="hidden" name="idUsuario" value="{{idUsuario}}">
+        <input type="hidden" name="fonte" value="{{fonte}}">
+        <div class="col-md-4 mx-auto">
+            <div class="input-group mb-2">
+                <span class="input-group-text"><i class="bi bi-binoculars"></i></span>
+                <div class="form-floating">
+                <input type="text" class="form-control" id="barraPesquisa" name="pesquisa" placeholder="Informe o Patrimônio" value="{{pesquisa}}">
+                    <label for="barraPesquisas">Informe o Patrimônio</label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Fim pesquisa ativo -->
+    <!-- Inicio formulário de cadastro de contrato -->
+    <form action="{{action}}" method="post" id="{{idForm}}" name="{{nameForm}}">
+        <input type="hidden" name="idUsuario" value="{{idUsuario}}">
+        <input type="hidden" name="fonte" value="{{fonte}}">
+        <!-- Inicio div card Ativos -->
+        <div class="card card-body mx-auto m-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">PAT</th>
+                        <td>Fabricante</td>
+                        <td>Modelo</td>
+                        <td>Número de Serie</td>
+                        <td class="text-center">Selecionar</td>
+                    </tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if dados %}
+
+                        {% for ativo in dados %}
+                        
+                            {% if ativo.idStatus==1 %}
+                                <tr class="table">
+                                    <th scope="row">{{ativo.pat}}</th>
+                                    <td>{{ativo.fabricante}}</td>
+                                    <td>{{ativo.modelo}}</td>
+                                    <td>{{ativo.num_serie}}</td>
+                                    <td class="text-center"><input type="radio" name="idAtivo" id="{{ativo.id}}" value="{{ativo.id}}" required></td>
+                                </tr>
+                            {% else %}
+                                <tr class="table table-danger">
+                                    <th scope="row">{{ativo.pat}}</th>
+                                    <td>{{ativo.fabricante}}</td>
+                                    <td>{{ativo.modelo}}</td>
+                                    <td>{{ativo.num_serie}}</td>
+                                    <td></td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+            <!-- Fim tabela de Ativos/Usuários -->
+        </div>
+        <!-- Fim div card Ativos/Usuários -->
+        {% if dados %}
+            <p class="text-center"><button type="submit" form="{{idForm}}" value="Submit" class="text-center btn btn-primary">Avançar</button></p>
+        {% endif %}
+    </form>
+    <!-- Fim Form Ativos -->
+{% elseif not idUsuario %}
+    <div class="col-md-6 mx-auto">
+        <h2 class="text-center display-5">Esolha o Usuário</h2>
+    </div>
+    <form class="" action="{{aPesquisaUsuario}}" method="post">
+        <input type="hidden" name="idAtivo" value="{{idAtivo}}">
+        <input type="hidden" name="fonte" value="{{fonte}}">
+        <div class="col-md-4 mx-auto">
+            <div class="input-group mb-2">
+                <span class="input-group-text"><i class="bi bi-binoculars"></i></span>
+                <div class="form-floating">
+                <input type="text" class="form-control" id="barraPesquisa" name="pesquisa" placeholder="Informe o nome do usuário" value="{{pesquisa}}">
+                    <label for="barraPesquisas">Informe o nome do usuário</label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Inicio formulário de cadastro de contrato -->
+    <form action="{{action}}" method="post" id="{{idForm}}" name="{{nameForm}}">
+        <input type="hidden" name="idAtivo" value="{{idAtivo}}">
+        <input type="hidden" name="fonte" value="{{fonte}}">
+        <!-- Inicio div card Usuários -->
+        <div class="card card-body mx-auto m-3" style="width: 50%;">
+            <!-- Inicío tabela de Usuários -->
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">CPF</th>
+                        <td>Nome</td>
+                        <td>Departamento</td>
+                        <td class="text-center">Selecionar</td>
+                    </tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if dados %}
+                        {% for usuario in dados %}
+                            <tr class="table">
+                                <th scope="row">{{usuario.cpf}}</th>
+                                <td>{{usuario.nome}}</td>
+                                <td>{{usuario.idDepartamento}}</td>
+                                <td class="text-center"><input type="radio" name="idUsuario" id="{{usuario.id}}" value="{{usuario.id}}" required></td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+            <!-- Fim tabela de Usuários -->
+        </div>
+        <!-- Fim div card Usuários -->
+        {% if dados %}
+            <p class="text-center"><button type="submit" form="{{idForm}}" value="Submit" class="text-center btn btn-primary">Avançar</button></p>
+        {% endif %}
+    </form>
+    <!-- Fim Form Usuário -->
+{% elseif idUsuario and idAtivo %}
+<!-- Inicio Form Contratos -->
+<form action="{{action}}" method="post" id="{{idForm}}" name="{{nameForm}}">
+    <input type="hidden" name="id" value="{{id}}">
+    <input type="hidden" name="idUsuario" value="{{idUsuario}}">
+    <input type="hidden" name="idAtivo" value="{{idAtivo}}">
+    <input type="hidden" name="fonte" value="{{fonte}}">
+    <input type="hidden" name="relato" value="0">
+    <input type="hidden" name="cancelado" value="0">
+    <input type="hidden" name="assinado" value="0">
+    <!-- Inicio div dos contratos -->
+    <div class="card card-body mx-auto m-3" style="width: 50%;">
+        <h2 class="card-title text-center display-6">Escolha o Comodante</h2>
+        <!-- Inicio tabela de Contratos -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">CNPJ</th>
+                    <td>Nome Fictício</td>
+                    <td class="text-center">Selecionar</td>
+                </tr>
+                </tr>
+              </thead>
+            <tbody>
+                {% for tipo in tipos %}
+                    {% if tipo.obsoleto == '1' %}
+                        <tr class="table-danger">
+                            <th scope="row">{{tipo.cnpj}}</th>
+                            <td>{{tipo.apelido}}</td>
+                            <td class="text-center"><input type="radio" name="idTipo" id="{{tipo.id}}" value="{{tipo.id}}" disabled></td>
+                        </tr>
+                    {% else %}
+                        <tr class="table">
+                            <th scope="row">{{tipo.cnpj}}</th>
+                            <td>{{tipo.apelido}}</td>
+                            <td class="text-center"><input type="radio" name="idTipo" id="{{tipo.id}}" value="{{tipo.id}}" required></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- Fim tabela de contratos -->
+    </div>
+    <!-- Fim div de contratos -->
+    <div class="col-md-4 mx-auto mb-3">
+        <p class="text-center"><button type="submit" form="{{idForm}}" value="Submit" class="text-center btn btn-primary">Enviar</button>
+    </div>
+</form>
+{%endif%}
+{% if info %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#staticBackdrop').modal('show');
+    })
+    function desabilitar(valor) {
+        var status = document.getElementById('campoStatus').disabled;
+
+        if (valor == 'sim' && !status) {
+            document.getElementById('campoStatus').disabled = true;
+            document.getElementById('btnMudar').disabled = true;
+            document.getElementById('btnFechar').hidden = false;
+        } else {
+            document.getElementById('campoStatus').disabled = false;
+            document.getElementById('btnMudar').disabled = false;
+            document.getElementById('btnFechar').hidden = true;
+        }
+    }
+</script>
+{% endif %}
+<!-- Fim Formulário de cadastro de contratos -->  
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Resultado da Inserção</h1>
+        </div>
+        <div class="modal-body">
+            <input type="checkbox" onclick="desabilitar('sim')"> Manter o status atual ({{ativoStatus}})</label>
+            <form method="post" action="?class=ContratoForm&method=changeStatusAtivo"> 
+                <input type="hidden" name="idAtivo" value="{{idAtivo}}">
+                <input type="hidden" name="id" value="{{id}}">
+                <div class="input-group">
+                    <select class="form-select" id="campoStatus" aria-label="Example select with button addon" name="idStatus">
+                        {% for key, value in status %}
+                            {% if value.id == '2' %}
+                                <option value="{{value.id}}" selected>{{value.estado}}</option>
+                            {% else %}
+                                <option value="{{value.id}}">{{value.estado}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <button class="btn btn-outline-primary" type="submit" id="btnMudar" >Mudar</button>
+                </div>
+            </form>
+          {{info}}
+        </div>
+        <div class="modal-footer">
+          <a href="{{fonte}}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="btnFechar" hidden>Fechar</button></a>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+{% if info %}
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-check-circle-fill fs-5"></i> <strong>{{info}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% elseif error %}
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-exclamation-diamond-fill fs-5"></i> <strong>ERROR! </strong>{{error}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% elseif primary %}
+    <div class="alert alert-primary alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-database-fill-up fs-5"></i> <strong>{{primary}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+{% if valores %}
+    <div class="alert alert-info" role="alert">
+        {% for key,valor in valores %}
+            {{key}}: {{valor}}<br>
+        {% endfor %}
+    </div>
+{% endif %}
+<div class="mx-auto text-center">
+    <i class="text-center bi-file-earmark-arrow-up" style="font-size: 5rem;"></i>
+    <figure class="text-center">
+        <blockquote class="blockquote">
+            <p>Cadastro de Empresa(Tipo)</p>
+        </blockquote>
+    </figure>
+</div>
+<div>
+    
+</div>
+<form class="" action="{{action}}" enctype="multipart/form-data" method="post" name="{{nameForm}}" width="100%" id="{{idForm}}">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control bg-body-tertiary" name="id" id="autoSizingInputGroup" value="{{id}}" placeholder="#" readonly>
+        <label for="floatingInput">ID</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="CNPJ" name="cnpj" value="{{cnpj}}">
+        <label for="floatingInput">CNPJ</label>
+    </div>
+    {% if contratoAssinado %}
+        <input type="text" class="nomeArquivo" name="name" value="{{name}}" readonly>
+    {% else %} 
+        <div class="form-floating mb-3">
+            <input type="file" class="form-control" id="arquivo" name="caminho" style="display: none;" accept=".html">
+        </div>   
+        <button type="button" id="botaoUp" class="btn btn-primary">Selecionar Arquivo</button> <input type="text" class="nomeArquivo" name="name" value="{{name}}" readonly>
+        <script>
+            var input = document.getElementById("arquivo");
+            var btn = document.getElementById("botaoUp");
+
+            btn.addEventListener("click", function(){
+                input.click();
+            });
+            input.addEventListener("change", function(){
+                var nome = "Não há arquivo selecionado. Selecionar arquivo...";
+                if(input.files.length > 0) nome = input.files[0].name;
+                document.querySelector("[name='name']").value = nome;
+            });
+        </script>
+    {% endif %}
+    <input type="hidden" name="caminho" value="{{caminho}}">
+    <input type="hidden" name="type" value="{{type}}">
+    <input type="hidden" name="size" value="{{size}}">
+    <input type="hidden" name="adress" value="{{adress}}">
+    {% if inputObsoleto is defined %}
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="obsoleto" id="radio1" value="1" {% if inputObsoleto == 1 %} checked {% endif %}>
+        <label class="form-check-label" for="radio1">
+            Obsoleto
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="obsoleto" id="radio2" value="0" {% if inputObsoleto == 0 %} checked {% endif %}>
+        <label class="form-check-label" for="radio2">
+            Vigente
+        </label>
+    </div>
+    {% else %}
+        <input type="hidden" name="obsoleto" value="0">
+    {% endif %}
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Razão Social" name="razaoSocial" value="{{razaoSocial}}">
+        <label for="floatingInput">Razão Social</label>
+    </div>    
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Apelido" name="apelido" value="{{apelido}}">
+        <label for="floatingInput">Apelido</label>
+    </div>
+    <button type="submit" form="{{idForm}}" value="Submit" class="text-center btn btn-primary">Enviar</button>
+    <button name="limpar" type="button" onclick="{{clear}}" class="text-center btn btn-warning">Limpar</button>
+</form>

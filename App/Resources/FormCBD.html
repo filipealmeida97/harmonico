@@ -1,0 +1,76 @@
+{% if info %}
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-check-circle-fill fs-5"></i> <strong>{{info}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% elseif error %}
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-exclamation-diamond-fill fs-5"></i> <strong>ERRO: </strong>{{error}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+
+<div class="card m-0">
+    <div class="card-header bg-dark text-center">
+        <span class="text-light fw-bold"><i class="bi bi-shield-lock-fill"></i> CBD</span>
+    </div>
+    <div class="card-body bg-light">
+        <h5 class="card-title text-center fw-bold">Informe os dados</h5>
+        <form class="row" method="post" name="form_cbd" enctype="multipart/form-data">
+            <div class="col">            
+                <div class="row mb-3">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-server"></i></div>
+                        <input type="text" class="form-control" placeholder="Endereço do Host" name="host">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row mb-3">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-database"></i></div>
+                        <input type="text" class="form-control" placeholder="Nome do banco" name="name">
+                    </div>
+                </div>
+            </div>            
+            <div class="col">
+                <div class="row mb-3">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-person"></i></div>
+                        <input type="text" class="form-control" placeholder="Usuário" name="user">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row mb-3">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-database-lock"></i></div>
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Senha do banco" name="pass">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row mb-3">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-database-gear"></i></div>
+                        <select class="form-select" id="autoSizingSelect" name="type">
+                            <option selected>SGBD.....</option>
+                            <option value="pgsql">PostgreSQL</option>
+                            <option value="mysql">Mysql</option>
+                            <option value="sqlite">SQLite</option>
+                            <option value="ibase">InterBase</option>
+                            <option value="oci8">Oracle</option>
+                            <option value="mssql">SQL Server</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <button name="enviar" type="submit" onclick="document.form_cbd.action='?class=CBDControl&method=onSend'; document.form_cbd.submit()" class="btn btn-primary btn-sm col-4 mx-auto"><span class="fw-bold">Criar</span></button>
+        </div>
+    </div>
+    <div class="card-footer bg-dark text-center">
+        <span class="text-white-50"><i class="bi bi-heart-pulse"></i> Golf Framework <i class="bi bi-heart-pulse"></i></span>
+    </div>
+</div>
