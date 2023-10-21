@@ -1,7 +1,13 @@
 # tccContratoMVC
 
-Este projeto visa realizar o controle de contratos de comodato (Termo de Responsabilidade) emitidos para um ativo e comodatário (utiilizador do ativo).
+Este projeto visa realizar o controle de contratos de comodato (Termo de Responsabilidade) emitidos para um ativo e comodatário (utilizador do ativo).
+## 💻 Pré-requisitos
 
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+* Você precisar ter instalado é um pacote com os principais servidores de código aberto do mercado, incluindo FTP, banco de dados MySQL e Apache com suporte as linguagens PHP e Perl.
+* Você tem uma máquina `<Windows` instalado.
+  
 ## 🚀 Começando
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
