@@ -1,6 +1,6 @@
-# Título do projeto
+# tccContratoMVC
 
-Um parágrafo da descrição do projeto vai aqui
+Este projeto visa realizar o controle de contratos de comodato (Termo de Responsabilidade) emitidos para um ativo e comodatário (utiilizador do ativo).
 
 ## 🚀 Começando
 
