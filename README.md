@@ -55,11 +55,15 @@ Se tudo der certo, aparecerá a tela acima 👆​.
 
 Exemplificando o uso da solução, vamos mostrar as datagrids do sistema. 
 
-#### 🖥️​ Visualizando Ativos
-
-Aqui temos a visualização de ativos.
+#### 👁️ Visualização de ativos
 
 <img src="Img/v_ativos.png" alt="Datagrid de Ativos"/>
+
+#### ⌨️​ Cadastro de ativos
+
+<img src="Img/c_ativos.png" alt="Formulário de Ativos"/>
+
+#### ​🖋️​ Editando ativo e visualizando seus contratos
 
 ### 🔩 Analise os testes de ponta a ponta
 
