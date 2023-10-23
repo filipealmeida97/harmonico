@@ -65,6 +65,8 @@ Exemplificando o uso da solução, vamos mostrar as datagrids do sistema.
 
 #### ​🖋️​ Editando ativo e visualizando seus contratos
 
+<img src="Img/e_ativos.png" alt="Edição de Ativos"/>
+
 ### 🔩 Analise os testes de ponta a ponta
 
 Explique que eles verificam esses testes e porquê.
