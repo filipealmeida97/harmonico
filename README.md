@@ -1,6 +1,6 @@
 # tccContratoMVC
 
-Este projeto visa realizar o controle de contratos de comodato (Termo de Responsabilidade) emitidos para um ativo e comodatário (utilizador do ativo).
+Este projeto visa realizar o controle de contratos de comodato (Termo de Responsabilidade) emitidos, para controle de empréstimos de um ativo para um comodatário (utilizador do ativo).
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
