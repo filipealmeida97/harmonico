@@ -6,7 +6,7 @@ Este projeto visa realizar o controle e emissão de contratos de comodato (Termo
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 * Precisa ter instalado ferramentas de virtualização de servidores, como o XAMPP ou WAMP, pois possui as distruibuições necessárias para rodar a solução.
-* Possui uma máquina com o `<Windows` instalado.
+* Possuir uma máquina com o `Windows` instalado.
   
 ## 🚀 Começando
 
@@ -45,13 +45,21 @@ Depois de clonado, importar o banco de dados contido no arquivo `contrato.sql`, 
 ├───Lib
 └───vendor
 ```
-Depois da importação do arquivo `.sql`
+Depois da importação do arquivo `.sql`, dar "Start" no `Apache` e `MySQL` via servidor virtual. Após isso acessar `localhost/harmonico/`.
 
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
+<img src="Img/home.png" alt="Página Home"/>
 
-## ⚙️ Executando os testes
+Se tudo der certo, aparecerá a tela acima 👆​.
 
-Explicar como executar os testes automatizados para este sistema.
+## ⚙️ Executando o sistema
+
+Exemplificando o uso da solução, vamos mostrar as datagrids do sistema. 
+
+#### 🖥️​ Visualizando Ativos
+
+Aqui temos a visualização de ativos.
+
+<img src="Img/v_ativos.png" alt="Datagrid de Ativos"/>
 
 ### 🔩 Analise os testes de ponta a ponta
 
