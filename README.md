@@ -53,7 +53,7 @@ Se tudo der certo, aparecerá a tela acima 👆​.
 
 ## ⚙️ Executando o sistema
 
-Exemplificando o uso da solução, vamos mostrar as datagrids do sistema. 
+Exemplificando o uso da solução, vamos mostrar algumas telas do sistema para o entendimento do projeto. 
 
 #### 👁️ Visualização de ativos
 
