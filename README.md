@@ -1,12 +1,12 @@
-# tccContratoMVC
+# Harmônico
 
-Este projeto visa realizar o controle de contratos de comodato (Termo de Responsabilidade) emitidos, para controle de empréstimos de um ativo para um comodatário (utilizador do ativo).
+Este projeto visa realizar o controle e emissão de contratos de comodato (Termo de Responsabilidade) emitidos, para controle de empréstimos de um ativo para um comodatário (utilizador do ativo).
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-* Você precisar ter instalado é um pacote com os principais servidores de código aberto do mercado, incluindo FTP, banco de dados MySQL e Apache com suporte as linguagens PHP e Perl.
-* Você tem uma máquina `<Windows` instalado.
+* Precisa ter instalado ferramentas de virtualização de servidores, como o XAMPP ou WAMP, pois possui as distruibuições necessárias para rodar a solução.
+* Possui uma máquina com o `<Windows` instalado.
   
 ## 🚀 Começando
 
@@ -16,27 +16,36 @@ Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar 
 
 ### 📋 Pré-requisitos
 
-De que coisas você precisa para instalar o software e como instalá-lo?
+Segue o link para download do XAMPP para instalação.
 
 ```
-Dar exemplos
+https://www.apachefriends.org/pt_br/index.html
 ```
 
 ### 🔧 Instalação
 
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
-
-Diga como essa etapa será:
+Para instalação da aplicação, é necessário clonar o repositório:
 
 ```
-Dar exemplos
+git clone https://github.com/filipealmeida97/harmonico.git
 ```
 
-E repita:
+Depois de clonado, importar o banco de dados contido no arquivo `contrato.sql`, MySQL, encontrado no diretorio indicado:
 
 ```
-Até finalizar
+├───App
+│   ├───Config
+│   │       contrato.sql
+│   ├───Contratos
+│   ├───Control
+│   ├───Images
+│   ├───Model
+│   ├───Resources
+│   └───Templates
+├───Lib
+└───vendor
 ```
+Depois da importação do arquivo `.sql`
 
 Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
 
