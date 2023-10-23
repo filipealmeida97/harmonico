@@ -12,11 +12,9 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
-
 ### 📋 Pré-requisitos
 
-Segue o link para download do XAMPP para instalação.
+Segue o link para download do XAMPP para instalação. Pois é um pré-requisito para o uso da solução.
 
 ```
 https://www.apachefriends.org/pt_br/index.html
