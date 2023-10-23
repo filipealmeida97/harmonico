@@ -45,15 +45,21 @@ Depois de clonado, importar o banco de dados contido no arquivo `contrato.sql`, 
 ├───Lib
 └───vendor
 ```
-Depois da importação do arquivo `.sql`, dar "Start" no `Apache` e `MySQL` via servidor virtual. Após isso acessar `localhost/harmonico/`. E aparecerá a tela a seguir:
+Depois da importação do arquivo `.sql`, dar "Start" no `Apache` e `MySQL` via servidor virtual. Após isso acessar `localhost/harmonico/`.
 
 <img src="Img/home.png" alt="Página Home"/>
 
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
+Se tudo der certo, aparecerá a tela acima 👆​.
 
-## ⚙️ Executando os testes
+## ⚙️ Executando o sistema
 
-Explicar como executar os testes automatizados para este sistema.
+Exemplificando o uso da solução, vamos mostrar as datagrids do sistema. 
+
+#### 🖥️​ Visualizando Ativos
+
+Aqui temos a visualização de ativos.
+
+<img src="Img/v_ativos.png" alt="Datagrid de Ativos"/>
 
 ### 🔩 Analise os testes de ponta a ponta
 
