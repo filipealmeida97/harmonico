@@ -45,7 +45,7 @@ Depois de clonado, importar o banco de dados contido no arquivo `contrato.sql`, 
 ├───Lib
 └───vendor
 ```
-Depois da importação do arquivo `.sql`, dar "Start" no `Apache` e `MySQL` via servidor virtual. Após isso acessar `localhost/harmonico/`.
+Depois da importação do arquivo `contrato.sql`, dar "Start" nos módulos `Apache` e `MySQL` via servidor virtual. Após isso acessar o endereço `localhost/harmonico/` no navegador.
 
 <img src="Img/home.png" alt="Página Home"/>
 
