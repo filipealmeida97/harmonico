@@ -55,7 +55,7 @@ Se tudo der certo, aparecerá a tela acima 👆​.
 
 Exemplificando o uso da solução, vamos mostrar algumas telas do sistema para o entendimento do projeto. 
 
-#### 👁️ Visualização de ativos
+#### 🖥️ Visualização de ativos
 
 <img src="Img/v_ativos.png" alt="Datagrid de Ativos"/>
 
@@ -67,21 +67,9 @@ Exemplificando o uso da solução, vamos mostrar algumas telas do sistema para o
 
 <img src="Img/e_ativos.png" alt="Edição de Ativos"/>
 
-### 🔩 Analise os testes de ponta a ponta
+#### ​📃 Datagrid de contratos
 
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-### ⌨️ E testes de estilo de codificação
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
+<img src="Img/v_contratos.png" alt="Edição de Ativos"/>
 
 ## 📦 Implantação
 
