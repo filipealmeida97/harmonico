@@ -1,9 +1,11 @@
 <p align="center"><img src="Img/logo.png" width="400" alt="Laravel Logo"></p>
 
+## ℹ️ Sobre
 Este projeto visa realizar o controle e emissão de contratos de comodato (Termo de Responsabilidade) emitidos, para controle de empréstimos de um ativo para um comodatário (utilizador do ativo).
-## 💻 Pré-requisitos
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
+## 💻 Recomendações
+
+Antes de começar, verifique se você atendeu aos seguintes recomendações de ambiente:
 
 * Precisa ter instalado ferramentas de virtualização de servidores, como o XAMPP ou WAMP, pois possui as distruibuições necessárias para rodar a solução.
 * Possuir uma máquina com o `Windows` instalado.
