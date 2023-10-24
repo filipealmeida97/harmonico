@@ -71,9 +71,11 @@ Exemplificando o uso da solução, vamos mostrar algumas telas do sistema para o
 
 <img src="Img/v_contratos.png" alt="Edição de Ativos"/>
 
+Exemplo de algumas telas do sistema que podem ser executadas.
+
 ## 📦 Implantação
 
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
+Até o momento esse projeto tem o cunho didático e não comercial, demostrando uso do padrão MVC no Framework `Golf`. Porém dependendo do escopo do projeto, o arquiteto julgue se seu uso é apropriado e útil no escopo do projeto.
 
 ## 🛠️ Construído com
 
@@ -86,35 +88,22 @@ Mencione as ferramentas que você usou para criar seu projeto
 <code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" alt="MySQL"/></code>
 <code><img height="32" src="https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/php/php.png" alt="PHP"/></code>
 
-
-## 🖇️ Colaborando
-
-Por favor, leia o [COLABORACAO.md](https://gist.github.com/usuario/linkParaInfoSobreContribuicoes) para obter detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de solicitação.
-
 ## 📌 Versão
 
-Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto). 
+Nós usamos [SemVer](http://semver.org/) para controle de versão.
 
 ## ✒️ Autores
 
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
+Aqui vai algumas menções honrosas.
 
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
+* **Filipe Almeida** - *Trabalho Inicial e Final* - [filipealmeida97](https://github.com/filipealmeida97)
 
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
+## 📄 Copyright
 
-## 📄 Licença
-
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
+Todos os direitos reservados.
 
 ## 🎁 Expressões de gratidão
 
-* Conte a outras pessoas sobre este projeto 📢;
-* Convide alguém da equipe para uma cerveja 🍺;
-* Um agradecimento publicamente 🫂;
-* etc.
-
-
----
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
+* A Deus 🦁;
+* Família 🤝;
+* Meu Amor ❤️;
