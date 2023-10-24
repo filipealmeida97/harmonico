@@ -1,4 +1,4 @@
-# Harmônico
+<p align="center"><img src="Img/logo.png" width="400" alt="Laravel Logo"></p>
 
 Este projeto visa realizar o controle e emissão de contratos de comodato (Termo de Responsabilidade) emitidos, para controle de empréstimos de um ativo para um comodatário (utilizador do ativo).
 ## 💻 Pré-requisitos
