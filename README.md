@@ -105,5 +105,5 @@ Todos os direitos reservados.
 ## 🎁 Expressões de gratidão
 
 * A Deus 🦁;
-* Família 🤝;
+* Família 👨‍👩‍👧‍👦;
 * Meu Amor ❤️;
