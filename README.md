@@ -75,7 +75,7 @@ Exemplo de algumas telas do sistema que podem ser executadas.
 
 ## 📦 Implantação
 
-Até o momento esse projeto tem o cunho didático e não comercial, demostrando uso do padrão MVC no Framework `Golf`. Porém dependendo do escopo do projeto, o arquiteto julgue se seu uso é apropriado e útil no escopo do projeto.
+Até o momento esse projeto tem o cunho didático e não comercial, demostrando uso do padrão MVC, o qual sustenta o framework (`Golf`) usado para o desenvolvimento da solução. Porém dependendo do escopo do projeto, que o arquiteto julgue se seu uso é apropriado e útil.
 
 ## 🛠️ Construído com
 
