@@ -79,7 +79,7 @@ Até o momento esse projeto tem o cunho didático e não comercial, demostrando 
 
 ## 🛠️ Construído com
 
-Mencione as ferramentas que você usou para criar seu projeto
+As ferramentas usadas para criação do projeto
 
 <code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" alt="Javascript"/></code>
 <code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="HTML5"/></code>
