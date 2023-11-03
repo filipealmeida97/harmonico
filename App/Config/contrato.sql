@@ -194,7 +194,7 @@ CREATE TABLE `tipo` (
 --
 
 INSERT INTO `tipo` (`id`, `razaoSocial`, `apelido`, `cnpj`, `caminho`, `name`, `type`, `size`, `adress`) VALUES
-(1, 'TECNOLOGIA LTDA', 'Contrato de Comodato Comum*', '28.023.537/0001-96', './App/Contratos/28.023.5370001-96-Contrato de Comodato Comum/contrato.html', 'contrato.html', 'text/html', 10146, './App/Contratos/28.023.5370001-96-Contrato de Comodato Comum');
+(1, 'TECNOLOGIA LTDA', 'Contrato de Comodato Comum*', '29.112.790/0001-89', './App/Contratos/29112790000189_Contrato_de_Comodato_Teste/contrato.html', 'contrato.html', 'text/html', 10146, './App/Contratos/29112790000189_Contrato_de_Comodato_Teste');
 
 -- --------------------------------------------------------
 
